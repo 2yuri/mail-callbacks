@@ -5,7 +5,7 @@ type smtpCodes struct {
 	Description string
 }
 
-type Status struct{
+type Status struct {
 	codes map[string]smtpCodes
 }
 
@@ -19,8 +19,7 @@ func (s *Status) Codes() map[string]smtpCodes {
 	return s.codes
 }
 
-func InitSMTPCodes() {
-
+func init() {
 	codes := make(map[string]smtpCodes)
 
 	codes["X.0.0"] = smtpCodes{

@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"mail-callbacks/app/schedule"
-	"mail-callbacks/app/smtp"
 	"mail-callbacks/config"
 )
 
@@ -20,7 +19,6 @@ func main() {
 	log.Printf("Defining logfile %s", logFile)
 
 	config.DefineLogFile(logFile)
-	smtp.InitSMTPCodes()
 
 	log.Printf("\n\n")
 	log.Println("================== starting the service mail-callbacks ==========================")
