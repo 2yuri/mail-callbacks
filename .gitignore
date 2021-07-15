@@ -1,0 +1,8 @@
+tmp
+.idea
+.env
+.vs
+.log
+testing
+mail-dispatcher.log
+go.sum

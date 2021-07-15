@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: _go.Dockerfile
+      target: builder
+    image: mail-callbacks
+    container_name: mail-callbacks
+    environment:
+      KAFKA_PRODUCE_TOPIC: "${KAFKA_PRODUCE_TOPIC}"
+      REQUEST_TIME: "${REQUEST_TIME}"
+      RESPONSE_AMOUNT: "${RESPONSE_AMOUNT}"
+      IMAP_ADDRESS: "${IMAP_ADDRESS}"
+      KAFKA_BROKERS: "${KAFKA_BROKERS}"
+      AWS_MAIL: "${AWS_MAIL}"
+      AWS_MAIL_PASSWORD: "${AWS_MAIL_PASSWORD}"
+    volumes:
+      - .:/go/src/app
+    ports:
+      - 8085:8081
+    networks:
+      - mail-network
+
+networks:
+  mail-network:
+    driver: bridge
